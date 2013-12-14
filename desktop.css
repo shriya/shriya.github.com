@@ -1,5 +1,4 @@
 h1 {
-<<<<<<< HEAD
         font-size: 16px;
 }
 
@@ -10,18 +9,6 @@ h2 {
 h3 {
         font-size: 12px;
         font-weight: bold;
-=======
-	font-size: 16px;
-}
-
-h2 {
-	font-size: 14px;
-}
-
-h3 {
-	font-size: 12px;
-	font-weight: bold;
->>>>>>> master
 }
 
 body, a {
@@ -43,8 +30,4 @@ head, body {
      margin-left: 8%;
      margin-top: 6%;
      margin-bottom: 6%;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> master

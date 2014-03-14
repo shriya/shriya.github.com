@@ -428,7 +428,7 @@ function createMarker()
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
-          title: Station;
+          title: Station,
           position: place.geometry.location
         });
 

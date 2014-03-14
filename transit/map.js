@@ -432,7 +432,7 @@ function createMarker()
           map: map,
           title: Station,
           position: place.geometry.location
-      });
+        });
 
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.close();
@@ -466,5 +466,4 @@ function createMarker()
       */  
     }
   }
-}
 

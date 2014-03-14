@@ -12,14 +12,7 @@ var marker;
 var infowindow = new google.maps.InfoWindow();
 var places;
 
-var polyline = new google.maps.Polyline({
-path: polylineCoords,
-geodesign: true,
-strokeColor: polylineColor,
-strokeWeight: 3
-})
-
-var stations = [
+var Stations = [
   {
     "Line":"Blue",
     "Station":"Airport",
@@ -342,12 +335,30 @@ var stations = [
 
 function init()
 {
-  request.open("get", "http://mbtamap.herokuapp.com/mapper/rodeo.json", true);
-  request.onreadystatechange = dataReady;
-  request.send(null);
-
   map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
   getMyLocation();
+
+  xhr = new XMLHttpRequest();
+  xhr.open("get", "http://mbtamap.herokuapp.com/mapper/rodeo.json", true);
+  xhr.onreadystatechange = dataReady;
+  xhr.send(null);
+}
+
+function dataReady() 
+{
+  if (xhr.readyState == 4 && xhr.status == 200) {
+    scheduleData = JSON.parse(xhr.responseText);
+    Line = scheduleData.responseText("Line");
+    alert(Line);
+    createMarker();
+    //Station = xhr.responseText("Station");
+    //Lat = xhr.responseText("Lat");
+    //Long = xhr.responseText("Long");
+  }
+  else if (xhr.readyState == 4 && xhr.status == 500) {
+    alert("Something went wrong!");
+    //internal error
+  }
 }
 
 function getMyLocation()
@@ -383,17 +394,17 @@ function renderMap()
     infowindow.setContent(marker.title);
     infowindow.open(map, marker);
   });
-        
+    
 // Calling Google Places API
-  var request = {
-    location: me,
-    radius: '500',
-    types: ['food']
-  };
+//  var request = {
+//    location: me,
+//    radius: '500',
+//    types: ['food']
+//  };
         
-  service = new google.maps.places.PlacesService(map);
-  service.search(request, callback);
-}
+//  service = new google.maps.places.PlacesService(map);
+// service.search(request, callback);
+//}
       
 // Taken from http://code.google.com/apis/maps/documentation/javascript/places.html
 function callback(results, status)
@@ -407,17 +418,50 @@ function callback(results, status)
   }
 }
       
-function createMarker(place)
+function createMarker()
   {
-    var placeLoc = place.geometry.location;
-    var marker = new google.maps.Marker({
-      map: map,
-      position: place.geometry.location
-    });
+    Stations.forEach(function(Station)) 
+    {
+      if(Stations.Line == Line) 
+      {
+        var image = 'purplemarker.png';
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          title: Station;
+          position: place.geometry.location
+        });
 
-    google.maps.event.addListener(marker, 'click', function() {
-      infowindow.close();
-      infowindow.setContent(place.name);
-      infowindow.open(map, this);
-    });
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.close();
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+
+        if (Line == "Red") {
+          var polyline = new google.maps.Polyline({
+          path: polylineCoords,
+          geodesign: true,
+          strokeColor: #FF0000,
+          strokeWeight: 3
+        })
+        }
+        if (Line == "Blue") {
+          var polyline = new google.maps.Polyline({
+          path: polylineCoords,
+          geodesign: true,
+          strokeColor: #0000FF,
+          strokeWeight: 3
+        })
+        }
+        if (Line == "Orange") {
+          var polyline = new google.maps.Polyline({
+          path: polylineCoords,
+          geodesign: true,
+          strokeColor: #FF6600,
+          strokeWeight: 3
+        })
+        }
+      }
+    }
   }

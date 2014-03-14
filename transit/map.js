@@ -438,32 +438,7 @@ function createMarker()
         infowindow.close();
         infowindow.setContent(place.name);
         infowindow.open(map, this);
-      });
-      /*
-      if (Line == "Red") {
-        var polyline = new google.maps.Polyline({
-        path: polylineCoords,
-        geodesign: true,
-        strokeColor: #FF0000,
-        strokeWeight: 3
-      })
-      }
-      if (Line == "Blue") {
-        var polyline = new google.maps.Polyline({
-        path: polylineCoords,
-        geodesign: true,
-        strokeColor: #0000FF,
-        strokeWeight: 3
-      })
-      }
-      if (Line == "Orange") {
-        var polyline = new google.maps.Polyline({
-        path: polylineCoords,
-        geodesign: true,
-        strokeColor: #FF6600,
-        strokeWeight: 3
-      })
-      */  
+      }); 
     }
-  }
-
+  });
+}

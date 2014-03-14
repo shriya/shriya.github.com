@@ -419,9 +419,9 @@ function callback(results, status)
 }
       
 function createMarker()
+{
+  Stations.forEach(function(Station) 
   {
-    Stations.forEach(function(Station)) 
-    {
       if(Stations.Line == Line) 
       {
         var image = 'purplemarker.png';
@@ -437,7 +437,7 @@ function createMarker()
           infowindow.setContent(place.name);
           infowindow.open(map, this);
         });
-
+/*
         if (Line == "Red") {
           var polyline = new google.maps.Polyline({
           path: polylineCoords,
@@ -461,7 +461,7 @@ function createMarker()
           strokeColor: #FF6600,
           strokeWeight: 3
         })
-        }
-      }
+*/
     }
   }
+}

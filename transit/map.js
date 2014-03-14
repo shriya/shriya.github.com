@@ -418,10 +418,10 @@ function callback(results, status)
   }
 }
       
-function createMarker()
-{
+function createMarker() {
   Stations.forEach(function(Station) 
   {
+      var coordinates = new Array();
       if(Stations.Line == Line) 
       {
         var image = 'purplemarker.png';
@@ -465,3 +465,4 @@ function createMarker()
     }
   }
 }
+

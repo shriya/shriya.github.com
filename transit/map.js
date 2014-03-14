@@ -363,7 +363,8 @@ function dataReady()
 
 function getMyLocation()
   {
-    if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
+    if (navigator.geolocation) 
+    { // the navigator.geolocation object is supported on your browser
       navigator.geolocation.getCurrentPosition(function(position) {
           myLat = position.coords.latitude;
           myLng = position.coords.longitude;
@@ -418,50 +419,51 @@ function callback(results, status)
   }
 }
       
-function createMarker() {
+function createMarker() 
+{
   Stations.forEach(function(Station) 
   {
-      var coordinates = new Array();
-      if(Stations.Line == Line) 
-      {
+    var coordinates = new Array();
+    if(Stations.Line == Line) 
+    {
         var image = 'purplemarker.png';
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
           title: Station,
           position: place.geometry.location
-        });
+      });
 
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.close();
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-        });
-/*
-        if (Line == "Red") {
-          var polyline = new google.maps.Polyline({
-          path: polylineCoords,
-          geodesign: true,
-          strokeColor: #FF0000,
-          strokeWeight: 3
-        })
-        }
-        if (Line == "Blue") {
-          var polyline = new google.maps.Polyline({
-          path: polylineCoords,
-          geodesign: true,
-          strokeColor: #0000FF,
-          strokeWeight: 3
-        })
-        }
-        if (Line == "Orange") {
-          var polyline = new google.maps.Polyline({
-          path: polylineCoords,
-          geodesign: true,
-          strokeColor: #FF6600,
-          strokeWeight: 3
-        })
-*/
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.close();
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+      });
+      /*
+      if (Line == "Red") {
+        var polyline = new google.maps.Polyline({
+        path: polylineCoords,
+        geodesign: true,
+        strokeColor: #FF0000,
+        strokeWeight: 3
+      })
+      }
+      if (Line == "Blue") {
+        var polyline = new google.maps.Polyline({
+        path: polylineCoords,
+        geodesign: true,
+        strokeColor: #0000FF,
+        strokeWeight: 3
+      })
+      }
+      if (Line == "Orange") {
+        var polyline = new google.maps.Polyline({
+        path: polylineCoords,
+        geodesign: true,
+        strokeColor: #FF6600,
+        strokeWeight: 3
+      })
+      */  
     }
   }
 }

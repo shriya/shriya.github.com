@@ -404,7 +404,7 @@ function renderMap()
         
 //  service = new google.maps.places.PlacesService(map);
 // service.search(request, callback);
-//}
+}
       
 // Taken from http://code.google.com/apis/maps/documentation/javascript/places.html
 function callback(results, status)

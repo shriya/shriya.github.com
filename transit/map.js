@@ -1,22 +1,95 @@
+var myLat = 0;
+var myLng = 0;
+var request = new XMLHttpRequest();
+var me = new google.maps.LatLng(myLat, myLng);
+var myOptions = {
+  zoom: 13, // The larger the zoom number, the bigger the zoom
+  center: me,
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+var map;
+var marker;
+var infowindow = new google.maps.InfoWindow();
+var places;
+      
+function init()
+{
+  request.open("get", "http://mbtamap.herokuapp.com/mapper/rodeo.json", true);
+  request.onreadystatechange = dataReady;
+  request.send(null);
 
-window.google = window.google || {};
-google.maps = google.maps || {};
-(function() {
-  
-  function getScript(src) {
-    document.write('<' + 'script src="' + src + '"' +
-                   ' type="text/javascript"><' + '/script>');
+  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  getMyLocation();
+}
+
+function getMyLocation()
+  {
+    if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
+      navigator.geolocation.getCurrentPosition(function(position) {
+          myLat = position.coords.latitude;
+          myLng = position.coords.longitude;
+         renderMap();
+      });
+    }
+    else {
+      alert("Geolocation is not supported by your web browser.  What a shame!");
+    }
   }
+
+function renderMap()
+{
+  me = new google.maps.LatLng(myLat, myLng);
+        
+  // Update map and go there...
+  map.panTo(me);
   
-  var modules = google.maps.modules = {};
-  google.maps.__gjsload__ = function(name, text) {
-    modules[name] = text;
+  // Create a marker
+  marker = new google.maps.Marker({
+    position: me,
+    title: "Here I Am!"
+  });
+  marker.setMap(map);
+          
+// Open info window on click of marker
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.setContent(marker.title);
+    infowindow.open(map, marker);
+  });
+        
+// Calling Google Places API
+  var request = {
+    location: me,
+    radius: '500',
+    types: ['food']
   };
-  
-  google.maps.Load = function(apiLoad) {
-    delete google.maps.Load;
-    apiLoad([0.009999999776482582,[[["http://mt0.googleapis.com/vt?lyrs=m@255000000\u0026src=api\u0026hl=en-US\u0026","http://mt1.googleapis.com/vt?lyrs=m@255000000\u0026src=api\u0026hl=en-US\u0026"],null,null,null,null,"m@255000000",["https://mts0.google.com/vt?lyrs=m@255000000\u0026src=api\u0026hl=en-US\u0026","https://mts1.google.com/vt?lyrs=m@255000000\u0026src=api\u0026hl=en-US\u0026"]],[["http://khm0.googleapis.com/kh?v=145\u0026hl=en-US\u0026","http://khm1.googleapis.com/kh?v=145\u0026hl=en-US\u0026"],null,null,null,1,"145",["https://khms0.google.com/kh?v=145\u0026hl=en-US\u0026","https://khms1.google.com/kh?v=145\u0026hl=en-US\u0026"]],[["http://mt0.googleapis.com/vt?lyrs=h@255000000\u0026src=api\u0026hl=en-US\u0026","http://mt1.googleapis.com/vt?lyrs=h@255000000\u0026src=api\u0026hl=en-US\u0026"],null,null,null,null,"h@255000000",["https://mts0.google.com/vt?lyrs=h@255000000\u0026src=api\u0026hl=en-US\u0026","https://mts1.google.com/vt?lyrs=h@255000000\u0026src=api\u0026hl=en-US\u0026"]],[["http://mt0.googleapis.com/vt?lyrs=t@132,r@255000000\u0026src=api\u0026hl=en-US\u0026","http://mt1.googleapis.com/vt?lyrs=t@132,r@255000000\u0026src=api\u0026hl=en-US\u0026"],null,null,null,null,"t@132,r@255000000",["https://mts0.google.com/vt?lyrs=t@132,r@255000000\u0026src=api\u0026hl=en-US\u0026","https://mts1.google.com/vt?lyrs=t@132,r@255000000\u0026src=api\u0026hl=en-US\u0026"]],null,null,[["http://cbk0.googleapis.com/cbk?","http://cbk1.googleapis.com/cbk?"]],[["http://khm0.googleapis.com/kh?v=84\u0026hl=en-US\u0026","http://khm1.googleapis.com/kh?v=84\u0026hl=en-US\u0026"],null,null,null,null,"84",["https://khms0.google.com/kh?v=84\u0026hl=en-US\u0026","https://khms1.google.com/kh?v=84\u0026hl=en-US\u0026"]],[["http://mt0.googleapis.com/mapslt?hl=en-US\u0026","http://mt1.googleapis.com/mapslt?hl=en-US\u0026"]],[["http://mt0.googleapis.com/mapslt/ft?hl=en-US\u0026","http://mt1.googleapis.com/mapslt/ft?hl=en-US\u0026"]],[["http://mt0.googleapis.com/vt?hl=en-US\u0026","http://mt1.googleapis.com/vt?hl=en-US\u0026"]],[["http://mt0.googleapis.com/mapslt/loom?hl=en-US\u0026","http://mt1.googleapis.com/mapslt/loom?hl=en-US\u0026"]],[["https://mts0.googleapis.com/mapslt?hl=en-US\u0026","https://mts1.googleapis.com/mapslt?hl=en-US\u0026"]],[["https://mts0.googleapis.com/mapslt/ft?hl=en-US\u0026","https://mts1.googleapis.com/mapslt/ft?hl=en-US\u0026"]],[["https://mts0.googleapis.com/mapslt/loom?hl=en-US\u0026","https://mts1.googleapis.com/mapslt/loom?hl=en-US\u0026"]]],["en-US","US",null,0,null,null,"http://maps.gstatic.com/mapfiles/","http://csi.gstatic.com","https://maps.googleapis.com","http://maps.googleapis.com"],["http://maps.gstatic.com/intl/en_us/mapfiles/api-3/16/3","3.16.3"],[2585407479],1,null,null,null,null,1,"",["places"],null,0,"http://khm.googleapis.com/mz?v=145\u0026",null,"https://earthbuilder.googleapis.com","https://earthbuilder.googleapis.com",null,"http://mt.googleapis.com/vt/icon",[["http://mt0.googleapis.com/vt","http://mt1.googleapis.com/vt"],["https://mts0.googleapis.com/vt","https://mts1.googleapis.com/vt"],[null,[[0,"m",255000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[47],[37,[["smartmaps"]]]]],0],[null,[[0,"m",255000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[47],[37,[["smartmaps"]]]]],3],[null,[[0,"m",255000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[50],[37,[["smartmaps"]]]]],0],[null,[[0,"m",255000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[50],[37,[["smartmaps"]]]]],3],[null,[[4,"t",132],[0,"r",132000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[5],[37,[["smartmaps"]]]]],0],[null,[[4,"t",132],[0,"r",132000000]],[null,"en-US","US",null,18,null,null,null,null,null,null,[[5],[37,[["smartmaps"]]]]],3],[null,null,[null,"en-US","US",null,18],0],[null,null,[null,"en-US","US",null,18],3],[null,null,[null,"en-US","US",null,18],6],[null,null,[null,"en-US","US",null,18],0],["https://mts0.google.com/vt","https://mts1.google.com/vt"],"/maps/vt"],2,500], loadScriptTime);
-  };
-  var loadScriptTime = (new Date).getTime();
-  getScript("http://maps.gstatic.com/cat_js/intl/en_us/mapfiles/api-3/16/3/%7Bmain,places%7D.js");
-})();
+        
+  service = new google.maps.places.PlacesService(map);
+  service.search(request, callback);
+}
+      
+// Taken from http://code.google.com/apis/maps/documentation/javascript/places.html
+function callback(results, status)
+{
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    alert("Got places back!");
+    places = results;
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+    }
+  }
+}
+      
+function createMarker(place)
+  {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.close();
+      infowindow.setContent(place.name);
+      infowindow.open(map, this);
+    });
+  }

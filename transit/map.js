@@ -443,8 +443,8 @@ function createMarker()
     if(Stations.Line == Line) 
     {
         var image = 'purplemarker.png';
-        image.style.height = 20%;
-        image.style.width = 20%;
+        image.style.height = "59px";
+        image.style.width = "37px";
           var placeLoc = new google.maps.LatLng(schedData.Lat, schedData.Long);
           var marker = new google.maps.Marker({
             map: map,

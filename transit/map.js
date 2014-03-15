@@ -439,12 +439,12 @@ function createMarker()
 {
   Stations.forEach(function(Station) 
   {
+    var image = 'purplemarker.png';
+        image.style.height = "59px";
+        image.style.width = "37px";
     var coordinates = new Array();
     if(Stations.Line == Line) 
     {
-        var image = 'purplemarker.png';
-        image.style.height = "59px";
-        image.style.width = "37px";
           var placeLoc = new google.maps.LatLng(schedData.Lat, schedData.Long);
           var marker = new google.maps.Marker({
             map: map,

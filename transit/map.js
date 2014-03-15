@@ -347,9 +347,8 @@ function init()
 function dataReady() 
 {
   if (xhr.readyState == 4 && xhr.status == 200) {
-    var scheduleData = JSON.parse(xhr.responseText);
-    Line = scheduleData("Line");
-    alert(Line);
+    schedData = JSON.parse(xhr.responseText);
+    alert(schedData.Line);
     createMarker();
     //Station = xhr.responseText("Station");
     //Lat = xhr.responseText("Lat");
@@ -375,6 +374,23 @@ function getMyLocation()
       alert("Geolocation is not supported by your web browser.  What a shame!");
     }
   }
+
+function myDistance(lat1,lon1){
+  return function(lat2,lon2){
+    var R = 3959;
+
+    var x1 = lat1-lat2;
+    var dLat = toRad(x1);  
+    var x2 = lon1-lon2; 
+    var dLon = toRad(x2); 
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
+                Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * 
+                Math.sin(dLon/2) * Math.sin(dLon/2);  
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c; 
+    return d;
+  };
+}
 
 function renderMap()
 {
@@ -427,12 +443,13 @@ function createMarker()
     if(Stations.Line == Line) 
     {
         var image = 'purplemarker.png';
-        var placeLoc = place.geometry.location;
-        var marker = new google.maps.Marker({
-          map: map,
-          title: Station,
-          position: place.geometry.location
-        });
+          var placeLoc = new google.maps.LatLng(schedData.Lat, schedData.Long);
+          var marker = new google.maps.Marker({
+            map: map,
+            title: Station,
+            icon: image,
+            position: placeLoc
+          });
 
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.close();

@@ -347,7 +347,7 @@ function init()
 function dataReady() 
 {
   if (xhr.readyState == 4 && xhr.status == 200) {
-    scheduleData = JSON.parse(xhr.responseText);
+    var scheduleData = JSON.parse(xhr.responseText);
     Line = scheduleData("Line");
     alert(Line);
     createMarker();

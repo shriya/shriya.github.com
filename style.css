@@ -1,0 +1,102 @@
+body {
+    font-family: 'Helvetica Nue', Helvetica, Arial, sans-serif;
+    margin-top: 60px; 
+    margin-right: -10px;
+    margin-bottom: -10px;
+    margin-left: -10px;
+}
+
+li {
+    color:#2c3e50;
+    padding-right:30px;
+}
+
+ul {
+    list-style-type: none;
+    font-family: Helvetica;
+    margin-top:10px;
+}
+
+a {
+    text-decoration: none;
+    color:#2c3e50;
+}
+
+.menu {
+    font-size: 16px;
+    color:#2c3e50;
+}
+
+#title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#header {
+    height:60px;
+    width:110%;
+    background-color: #9DB63B;   /* Leaf Green */
+    margin:0;
+    position:fixed;
+    top:0px;
+}
+
+#mypic {
+    float:left;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+#bio {
+    background-color: #5B9032;   /* Kelly Green */
+
+    padding-top: 20px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+}
+
+#portfolio {
+    height:660px;
+    background-color: #49A88F;   /* Teal */
+
+    padding-top: 20px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+}
+
+#education {
+    height:660px;
+    background-color: #3B8FA3;   /* Blue */
+
+    padding-top: 20px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+}
+
+#books {
+    height:660px;
+    background-color: #005A88;   /* Navy */
+
+    padding-top: 20px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+}
+
+/* media queries for mobile viewing */
+
+@media (min-width: 600px) {
+    li {
+        display:inline;
+    }
+}
+
+@media (max-width: 599px) {
+    #header {
+        height:120px;
+    }
+}
+

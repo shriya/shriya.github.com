@@ -18,6 +18,7 @@ ul {
 }
 
 a {
+    font-weight: bold;
     text-decoration: none;
     color:#2c3e50;
 }
@@ -48,42 +49,91 @@ a {
 }
 
 #bio {
-    background-color: #5B9032;   /* Kelly Green */
-
     padding-top: 20px;
-    padding-right: 50px;
+    padding-right: 20%;
     padding-bottom: 20px;
-    padding-left: 50px;
+    padding-left: 20%;
+}
+
+#border1 {
+    background-color: #5B9032;   /* Kelly Green */
+    height: 20px;
 }
 
 #portfolio {
-    height:660px;
-    background-color: #49A88F;   /* Teal */
+    text-align: center;
 
     padding-top: 20px;
-    padding-right: 50px;
+    padding-right: 20%;
     padding-bottom: 20px;
-    padding-left: 50px;
+    padding-left: 20%;
+}
+
+#border2 {
+    background-color: #49A88F;   /* Teal */
+    height: 20px;
 }
 
 #education {
-    height:660px;
-    background-color: #3B8FA3;   /* Blue */
+    text-align: center;
 
     padding-top: 20px;
-    padding-right: 50px;
+    padding-right: 20%;
     padding-bottom: 20px;
-    padding-left: 50px;
+    padding-left: 20%;
 }
 
-#books {
-    height:660px;
+#border3 {
+    background-color: #3B8FA3;   /* Blue */
+    height: 20px;
+}
+
+#favorites {
+    padding-top: 20px;
+    padding-right: 20%;
+    padding-bottom: 20px;
+    padding-left: 20%;
+}
+
+#border4 {
     background-color: #005A88;   /* Navy */
+    height: 20px;
+}
+
+#whyka {
+    text-align: center;
 
     padding-top: 20px;
-    padding-right: 50px;
+    padding-right: 20%;
     padding-bottom: 20px;
-    padding-left: 50px;
+    padding-left: 20%;
+}
+
+#work {
+    text-align: center;
+
+    padding-top: 20px;
+    padding-right: 20%;
+    padding-bottom: 20px;
+    padding-left: 20%;
+}
+
+#edu {
+    text-align: center;
+
+    padding-top: 20px;
+    padding-right: 20%;
+    padding-bottom: 20px;
+    padding-left: 20%;
+}
+
+#ideas {
+    text-align: center;
+
+    padding-top: 20px;
+    padding-right: 20%;
+    padding-bottom: 20px;
+    padding-left: 20%;
 }
 
 /* media queries for mobile viewing */

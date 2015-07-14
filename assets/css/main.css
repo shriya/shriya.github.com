@@ -18,8 +18,8 @@ body {
 }
 
 /* Titles */
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway";
+h1, h2, h3, h4, h5, h6, p {
+    font-family: "Monda";
     font-weight: 500;
     color: #333;
 }
@@ -152,13 +152,12 @@ a:after {
 
 /* Header Wrap */
 #headerwrap {
-	background: url(../img/header-bg.png) no-repeat center top;
-	margin-top: 60px;
-	padding-top:140px;
+	background: url(../img/tealbackgroundimg.png) no-repeat center top;
+	padding-top:80px;
 	text-align:center;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 500px;
+	min-height: 400px;
 	width: 100%;
 	
     -webkit-background-size: 100%;
@@ -173,12 +172,12 @@ a:after {
 }
 
 #headerwrap h1 {
-	font-size: 80px;
+	font-size: 100px;
 	color: white;
 }
 
 #headerwrap h3 {
-	font-size: 20px;
+	font-size: 30px;
 	color: white;
 }
 
@@ -215,7 +214,7 @@ a:after {
 }
 
 #footwrap {
-	background: #d35400;
+	background: #4B94A6;
 	padding-top: 50px;
 	padding-bottom: 50px;
 }

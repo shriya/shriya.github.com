@@ -24,6 +24,10 @@ h1, h2, h3, h4, h5, h6, p {
     color: #333;
 }
 
+h4 {
+	font-size: 30px;
+}
+
 #abouttitle {
 	color: #fff;
 }
@@ -131,13 +135,29 @@ a:after {
 }
 
 #headerwrap h1 {
-	font-size: 100px;
-	color: #2E2D2E;
+	font-size: 90px;
+	color: #fff;
 }
 
 #headerwrap h3 {
 	font-size: 30px;
-	color: #2E2D2E;
+	color: #fff;
+}
+
+#headerwrap h4 {
+	color: #fff;
+}
+
+#headerwrap a {
+	color: #fff;
+}
+
+#headerwrap a h3 {
+	font-size: 20px;
+}
+
+#headerwrap p a {
+	padding-right: 12px;
 }
 
 /* Intro Wrap */
@@ -170,10 +190,13 @@ a:after {
 	color: white;
 }
 
-#footwrap h5 {
+#footwrap h4 {
 	color: white;
 }
 
+#footwrap a {
+	color: white;
+}
 
 #footwrap t {
 	font-weight: 700;

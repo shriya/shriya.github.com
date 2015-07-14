@@ -8,7 +8,7 @@
 
 body {
   background-color: #f2f2f2;
-    font-family: "Lato";
+    font-family: "Monda";
     font-weight: 300;
     font-size: 16px;
     color: #555;
@@ -78,74 +78,29 @@ a:after {
 
 #section-topbar {
 	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
 	z-index: 10000;
-	overflow: visible;
-	font: normal 16px/24px  'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-#section-topbar a {
-  color: #fff;
-}
-
-#topbar-inner {
-	background: #111;
-	line-height: 0;
+	text-decoration: none;
 	text-align: center;
+	font-family: "Monda";
+	background-color: #2E2D2E;
+	width: 100%;
+	height: 50px;
+	margin-top: -20px;
 }
 
-/*
-	Top Bar
-
-	By default, top navigation bar uses "fixed" position
-*/
-#section-topbar ul#nav {
-	display: inline-block;
-	position: relative;
-	margin: 0;
-	padding: 0;
-
-	border-right: 1px solid #222;
-
-	/* For IE, the outcast */
-	zoom:1;
-	*display: inline;
+#section-topbar ul {
+	list-style-type: none;
 }
 
-#section-topbar ul#nav > li {
-	display: block;
-    float: left;
-    padding: 0;
+#section-topbar ul li {
+	display: inline;
+	padding-right: 20px;
 }
 
-
-#section-topbar ul#nav a {
-  display: block;
-  font: normal 11px/18px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-decoration: none;
-  padding: 18px 20px 18px 20px;
-  border-left: 1px solid #222;
+#section-topbar ul li a {
+	color: #fff;
 }
 
-	#section-topbar ul#nav a:hover {
-	  background: #222;
-	  text-decoration: none;
-	  border-left: 1px solid #111;
-	}
-
-	#section-topbar ul#nav .active a {
-		background: #44bbaa;
-		border-left: 1px solid #111;
-	}
-
-		#section-topbar ul#nav .active a:hover {
-			background: #44bbaa;
-		}
-#section-topbar i {
-	font-size: 25px;
-}
 /*---------------------------------------------------
 	SECTION WRAPS
 ---------------------------------------------------*/
@@ -173,12 +128,12 @@ a:after {
 
 #headerwrap h1 {
 	font-size: 100px;
-	color: white;
+	color: #2E2D2E;
 }
 
 #headerwrap h3 {
 	font-size: 30px;
-	color: white;
+	color: #2E2D2E;
 }
 
 /* Intro Wrap */
@@ -201,22 +156,10 @@ a:after {
 	vertical-align: middle;
 }
 
-
-#skillswrap {
-	background: #d35400;
-	padding-top: 60px;
-	padding-bottom: 60px;
-	color: white;
-}
-
-#skillswrap h5, p {
-	color: white;
-}
-
 #footwrap {
 	background: #4B94A6;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 20px;
+	padding-bottom: 10px;
 }
 
 #footwrap p {
@@ -233,23 +176,13 @@ a:after {
 }
 
 #footwrap i {
-	padding-right: 8px;
+	padding-right: 12px;
 	color: #ffffff;
 }
 
-/* Copyright Wrap */
-
-#c {
-	background: #222222;
-	padding-top: 15px;
-	text-align: right;
+#social {
+	font-size: 26px;
 }
-
-#c p {
-	color: white
-}
-
-
 
 /* Global Values */
 

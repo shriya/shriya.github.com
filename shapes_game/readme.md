@@ -13,8 +13,4 @@ If you press the wrong arrow for a shape, your score will be subtracted by 1 poi
 
 The goal of the game is to get the most points in 30 seconds.
 
-Here is a demo of the game:
-
-![Shapes game](canvasShapesGame.gif)
-
 You have starter code in this directory.  The html and css are setup for you.  There are also some suggested functions in the `index.js` file.  You can add your own functions or rewrite anything in this file.  The function names are just a suggestion.

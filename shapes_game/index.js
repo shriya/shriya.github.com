@@ -31,15 +31,19 @@ window.addEventListener("load", function() {
   function drawGameStartText(ctx, width, height, score) {
     clear(ctx, width, height);
     // press spacebar to start a new game
-    ctx.font = "24px serif";
-    ctx.fillStyle = "white";
+    ctx.font = "24px Arial";
+    ctx.fillStyle = "#28464B;";
     ctx.textAlign = "center";
-    ctx.fillText("Press spacebar to start a new game", canvas.width / 2, canvas.height / 2);
 
     // score: ## (displayed underneath *if* they have a prev score))
     if (score) { // if score is not undefined
-      ctx.fillText("Score: " + score, canvas.width / 2, (canvas.height / 2) + 30);
+      ctx.fillText("Your score was: " + score, canvas.width / 2, (canvas.height / 2) - 90);
     }
+
+    ctx.fillText("Click the arrow keys that match the shapes", canvas.width / 2, (canvas.height / 2) - 30);
+    ctx.fillText("If you get it right, you earn a point; wrong, you lose one.", canvas.width / 2, (canvas.height / 2));
+
+    ctx.fillText("Press spacebar to start a new game!", canvas.width / 2, (canvas.height / 2) + 60);
   }
 
   function restartGame(ctx, width, height) {
@@ -77,8 +81,8 @@ window.addEventListener("load", function() {
   canvas.width = width;
   canvas.height = height;
 
-  function redTri(x, y) {
-    ctx.fillStyle = "red";
+  function redTri(x, y) { // left
+    ctx.fillStyle = "#825E80";
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x+50, y+50);
@@ -86,21 +90,36 @@ window.addEventListener("load", function() {
     ctx.fill();
     ctx.closePath();
   }
-  function whiteSq(x, y) {
-    ctx.fillStyle = "white";
+  function whiteSq(x, y) { // right
+    ctx.fillStyle = "#28464B";
     ctx.fillRect(x, y, 50, 50);
   }
-  function whiteTri(x, y) { 
-    ctx.fillStyle = "white";
+  function whiteTri(x, y) { // up
+    ctx.fillStyle = "#28464B";
     ctx.beginPath();
+    
+    // // triangle
     ctx.moveTo(x, y);
     ctx.lineTo(x+50, y+50);
     ctx.lineTo(x, y+50);
+
+    // DDR Arrow
+    // ctx.moveTo(25, 0);
+    // ctx.lineTo(50, 25);
+    // ctx.quadraticCurveTo(50, 35, 40, 35);
+    // ctx.lineTo(35, 30);
+    // ctx.lineTo(35, 40);
+    // ctx.quadraticCurveTo(35, 50, 25, 50);
+    // ctx.quadraticCurveTo(15, 50, 15, 30);
+    // ctx.lineTo(15, 30);
+    // ctx.lineTo(10, 35);
+    // ctx.quadraticCurveTo(0, 35, 0, 25);
+
     ctx.fill();
     ctx.closePath();
   }
-  function redSq(x, y) {
-    ctx.fillStyle = "red";
+  function redSq(x, y) { // down
+    ctx.fillStyle = "#825E80";
     ctx.fillRect(x, y, 50, 50);
   }
 

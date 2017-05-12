@@ -20,7 +20,7 @@ h2 {
   border-radius: 10px;
 }
 
-@media only screen and (min-width: 601px) {
+@media (min-width: 601px) {
   .square {
     min-width: 185px;
     min-height: 165px;
@@ -34,7 +34,7 @@ h2 {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .square {
     min-width: 74px; 
     min-height: 66px; 

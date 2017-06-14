@@ -44,7 +44,8 @@ p {
 
 /* Links */
 a {
-    color: #2e2e2e;
+    color: #AC8772;
+    font-weight: bold;
     word-wrap: break-word;
 
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -191,10 +192,6 @@ a:after {
 }
 
 #footwrap h4 {
-	color: white;
-}
-
-#footwrap a {
 	color: white;
 }
 

@@ -115,7 +115,7 @@ a:after {
 
 /* Header Wrap */
 #headerwrap {
-	background: url(../img/tealbackgroundimg.png) no-repeat center top;
+	background: url(../img/red-background.jpg) no-repeat center top;
 	padding-top:60px;
 	text-align:center;
 	background-attachment: relative;
@@ -181,7 +181,7 @@ a:after {
 }
 
 #footwrap {
-	background: #24565F;
+	background: #721818;
 	padding-top: 20px;
 	padding-bottom: 10px;
 }
